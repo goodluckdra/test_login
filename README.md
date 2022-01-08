@@ -15,3 +15,4 @@ source venv/bin/activate
 ```shell
 pip install -r requirements.txt
 ```
+3. add env.py under the test directory, edit the content based on the env.py.example
