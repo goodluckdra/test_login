@@ -37,3 +37,6 @@ venv.bak/
 # Secrets
 env.py
 
+# Cache
+__pycache__/
+
