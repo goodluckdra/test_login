@@ -39,4 +39,5 @@ env.py
 
 # Cache
 __pycache__/
+*.pyc
 
