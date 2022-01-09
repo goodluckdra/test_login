@@ -61,5 +61,3 @@ if __name__ == '__main__':
     else:
         driver.save_screenshot(file_utils.screenshot_path_name(login=True))
 
-    # print(ACCOUNT, PASSWORD)
-
