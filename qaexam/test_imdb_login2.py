@@ -6,7 +6,10 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support import expected_conditions as EC
 import seleniumwire.undetected_chromedriver.v2 as uc
+
+from utils import file_utils
 import time
+import os
 
 from env import ACCOUNT, PASSWORD, PROFILE_PATH, USER_NAME
 
@@ -18,7 +21,6 @@ GOOGLE_LOGIN_ACCOUNT_BTN = '//*[@id="identifierNext"]/div/button'
 GOOGLE_LOGIN_PW_INPUT = '//*[@id="password"]/div[1]/div/div[1]/input'
 GOOGLE_LOGIN_PW_BTN = '//*[@id="passwordNext"]/div/button'
 USER_NAME_XPATH = '//*[@id="imdbHeader"]/div[2]/div[5]/div/label[2]/div/span'
-SCREENSHOT_PATH = 'screenshot.png'
 
 
 
@@ -53,11 +55,11 @@ if __name__ == '__main__':
         user_name = WebDriverWait(driver, 10).until(lambda d: d.find_element(By.XPATH, USER_NAME_XPATH).text)
     except TimeoutException as e:
         print(e)
-    
-    if user_name != USER_NAME:
-        print('wrong user')
 
-    driver.save_screenshot(SCREENSHOT_PATH) #screenshot
+    if user_name != USER_NAME:
+        driver.save_screenshot(file_utils.screenshot_path_name(login=True))
+    else:
+        driver.save_screenshot(file_utils.screenshot_path_name(login=True))
 
     # print(ACCOUNT, PASSWORD)
 

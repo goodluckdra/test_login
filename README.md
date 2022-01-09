@@ -16,3 +16,8 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 3. add env.py under the test directory, edit the content based on the env.py.example
+
+### Notes
+1. Where to find chrome profile path
+   - type **chrome://version/** in chrome search bar
+2. Make sure to turn off the 2FA authentication for your google account
