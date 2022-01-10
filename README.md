@@ -15,7 +15,7 @@ source venv/bin/activate
 ```shell
 pip install -r requirements.txt
 ```
-3. Add env.py under the test directory, edit the content based on the env.py.example
+3. Add ```env.py``` under the ```test``` directory, edit the content based on the env.py.example
 ### Pytest to login imdb via Google account
 - Go to the directory ```tests```
 - Run the command below:
