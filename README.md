@@ -6,8 +6,10 @@
 2. chromedriver (same as virtualenv)
 
 ### Before Starting the test, you need to run commands below by sequence :
-1. To activate the virtual environments
-
+1. To create and activate the virtual environments at the root (```test_login/```)
+```shell
+virtualenv venv
+```
 ```shell
 source venv/bin/activate
 ```
