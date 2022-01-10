@@ -3,7 +3,7 @@
 ### Requirements on MacOS
 1. virtualenv 
    (if you don't have it in your mac, you can use homebrew to install)
-2. chromedriver (same as virtualenv)
+2. chromedriver (same as virtualenv, install by brew)
 
 ### Before Starting the test, you need to run commands below by sequence :
 1. To create and activate the virtual environments at the root (```test_login/```)
