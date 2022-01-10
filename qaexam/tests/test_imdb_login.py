@@ -35,34 +35,33 @@ def test_name_equals_main():
                 driver = uc.Chrome(options=options)
                 driver.get(URL)
 
-                # to choose log in via google account
-                login_btn = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, IMDB_LOGIN_BTN)))
-                login_btn.click()
-                login_google_btn = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, IMDB_LOGIN_BY_GOOGLE_BTN)))
-                login_google_btn.click()
+                # # to choose log in via google account
+                # login_btn = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, IMDB_LOGIN_BTN)))
+                # login_btn.click()
+                # login_google_btn = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, IMDB_LOGIN_BY_GOOGLE_BTN)))
+                # login_google_btn.click()
 
-                # enter email and password to log in
-                input_gmail_address = WebDriverWait(driver, 5).until(lambda d: d.find_element(By.XPATH, GOOGLE_LOGIN_ACCOUNT_INPUT))
-                input_gmail_address.send_keys(Keys.ENTER, ACCOUNT)
-                continue_google_btn = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, GOOGLE_LOGIN_ACCOUNT_BTN)))
-                continue_google_btn.click()
-                input_gmail_pw = WebDriverWait(driver, 5).until(lambda d: d.find_element(By.XPATH, GOOGLE_LOGIN_PW_INPUT))
-                time.sleep(3)
-                input_gmail_pw.send_keys(Keys.ENTER, PASSWORD)
-                continue_google_btn = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, GOOGLE_LOGIN_PW_BTN)))
-                continue_google_btn.click()
+                # # enter email and password to log in
+                # input_gmail_address = WebDriverWait(driver, 5).until(lambda d: d.find_element(By.XPATH, GOOGLE_LOGIN_ACCOUNT_INPUT))
+                # input_gmail_address.send_keys(Keys.ENTER, ACCOUNT)
+                # continue_google_btn = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, GOOGLE_LOGIN_ACCOUNT_BTN)))
+                # continue_google_btn.click()
+                # input_gmail_pw = WebDriverWait(driver, 5).until(lambda d: d.find_element(By.XPATH, GOOGLE_LOGIN_PW_INPUT))
+                # time.sleep(3)
+                # input_gmail_pw.send_keys(Keys.ENTER, PASSWORD)
+                # continue_google_btn = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, GOOGLE_LOGIN_PW_BTN)))
+                # continue_google_btn.click()
 
 
-                # to get the account name 
+                # to get the account name
                 try:
                         user_name = WebDriverWait(driver, 10).until(lambda d: d.find_element(By.XPATH, USER_NAME_XPATH).text)
+                        if user_name != USER_NAME:
+                                driver.save_screenshot(file_utils.screenshot_path_name(login=False))
+                        else:
+                                driver.save_screenshot(file_utils.screenshot_path_name(login=True))
                 except TimeoutException as e:
-                        print(e)
-                
-                if user_name != USER_NAME:
                         driver.save_screenshot(file_utils.screenshot_path_name(login=False))
-                else:
-                        driver.save_screenshot(file_utils.screenshot_path_name(login=True))
 
                 assert user_name == USER_NAME
 
